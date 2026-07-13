@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PureSky Command Center</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <img src="logo.png" class="logo" alt="PureSky Logo" />
+        <div>
+          <h1>PURESKY COMMAND CENTER</h1>
+          <p>No BS. Just Solutions.</p>
+        </div>
+      </div>
+      <div class="right-head">
+        <div id="date">Loading date...</div>
+        <div id="clock">Loading time...</div>
+        <div class="weather" id="weatherMini">Loading weather...</div>
+      </div>
+    </header>
+
+    <section class="kpis">
+      <div><span>Active</span><strong id="activeCount">0</strong></div>
+      <div><span>Waiting</span><strong id="waitingCount">0</strong></div>
+      <div><span>Follow Ups</span><strong id="followCount">0</strong></div>
+      <div><span>Ready Invoice</span><strong id="invoiceCount">0</strong></div>
+      <div><span>Attention</span><strong id="attentionCount">0</strong></div>
+    </section>
+
+    <main class="command-grid">
+      <section class="panel job-board">
+        <h2>⚡ ACTIVE PROJECTS</h2>
+        <div class="table-head">
+          <div>Customer</div>
+          <div>Priority</div>
+          <div>Project / Notes</div>
+          <div>Status</div>
+          <div>Waiting On</div>
+          <div>Next Action</div>
+          <div>Owner</div>
+        </div>
+        <div id="jobRows"><div class="loading">Loading Google Sheet jobs...</div></div>
+      </section>
+
+      <aside class="side-stack">
+        <section class="panel">
+          <h2>🚨 NEEDS ATTENTION</h2>
+          <div id="attentionList"></div>
+        </section>
+        <section class="panel">
+          <h2>💰 READY TO INVOICE</h2>
+          <div id="invoiceList"></div>
+        </section>
+        <section class="panel">
+          <h2>📞 FOLLOW UPS</h2>
+          <div id="followUpList"></div>
+        </section>
+        <section class="panel wins-panel">
+          <h2>🏆 WINS OF THE WEEK</h2>
+          <div id="winsList"></div>
+        </section>
+        <section class="panel weather-panel">
+          <h2>🌤 WEATHER</h2>
+          <div id="weatherCard" class="weather-card">Loading Portage weather...</div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="status-bar">
+      <span>🟢 SYSTEM ONLINE</span>
+      <span>🟢 GOOGLE SHEETS CONNECTED</span>
+      <span id="sheetCount">SHEET ROWS: -- | SHOWING: --</span>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
