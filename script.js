@@ -232,12 +232,14 @@ function boardSort(a,b){
   return (order[statusKey(a.status)] || 50) - (order[statusKey(b.status)] || 50);
 }
 
-function priorityLabel(priority){
+function priorityLabel(priority) {
   const p = normalize(priority);
-  if(!p) return "";
-  if(p.includes("high") || p.includes("urgent")) return "HIGH";
-  if(p.includes("med")) return "MED";
-  if(p.includes("low")) return "LOW";
+
+  if (!p) return "";
+  if (p === "high") return "HIGH";
+  if (p === "normal") return "NORMAL";
+  if (p === "low") return "LOW";
+
   return cleanText(priority).toUpperCase();
 }
 function priorityBadge(priority){
@@ -253,7 +255,9 @@ function renderJobs(){
   const jobRows = document.getElementById("jobRows");
   if(!jobRows) return;
 
-  const visibleJobs = jobs.filter(isVisibleOnBoard).sort(boardSort).slice(0, MAX_VISIBLE_JOBS);
+const visibleJobs = jobs
+    .filter(isVisibleOnBoard)
+    .slice(0, MAX_VISIBLE_JOBS);
 
   jobRows.innerHTML = visibleJobs.map(j => `
     <div class="job-row ${statusClass(j.status)} ${priorityClass(j.priority)}">
